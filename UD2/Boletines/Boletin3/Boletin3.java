@@ -1,14 +1,13 @@
 
-import java.util.Scanner;
-import java.io.RandomAccessFile;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Boletin3
 {
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) 
     {
-        ej9();
+        ej12();
     }
     public static void ej1()
     {
@@ -132,6 +131,75 @@ public class Boletin3
     }
     public static void ej9()
     {
+        String contrasenya = "password";
+        String input = "";
+        int intentos = 3;
 
+        while (intentos > 0) 
+        { 
+            System.out.printf("Introduzca la contraseña, le quedan %d intentos: ", intentos);
+            input = sc.nextLine();
+            intentos--;
+            if(input.equals(contrasenya))
+            {
+                System.out.println("hola");
+                break;
+            }
+        }
+    }
+    public static void ej10()
+    {
+        System.out.print("Introduzca menor número del intervalo para la generación de los números: ");
+        int min = Integer.parseInt(sc.nextLine());
+        System.out.print("Introduzca el mayor número del intervalo: ");
+        int max = Integer.parseInt(sc.nextLine());
+       
+
+        for(int i = 0;i <= 10;i++)
+        {   
+            int num = (int)(Math.random() * max) + min;
+            System.out.println(num);
+        }
+    }
+    public static void ej11()
+    {
+        System.out.print("Introduzca menor número del intervalo para la generación de los números: ");
+        int min = Integer.parseInt(sc.nextLine());
+        System.out.print("Introduzca el mayor número del intervalo: ");
+        int max = Integer.parseInt(sc.nextLine());
+        Random random = new Random();
+
+        for(int i = 0;i <= 10;i++)
+        {   
+            int num = random.nextInt((max - min) + 1) + min;
+            System.out.println(num);
+        }
+    }
+    public static void ej12()
+    {
+        System.out.print("Introduce la cantidad de primos a mostrar: ");
+        int num = sc.nextInt();
+
+        int contador = 0;
+        int numActual = 2;   
+
+        while (contador < num) 
+        {
+            boolean esPrimo = true;
+
+            for (int i = 2; i < numActual; i++) 
+            {
+                if (numActual % i == 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+            if (esPrimo == true) 
+            {
+                System.out.println(numActual);
+                contador++;
+            }
+            numActual++;
+        }
     }
 } 
