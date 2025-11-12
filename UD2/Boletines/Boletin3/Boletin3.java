@@ -8,7 +8,7 @@ public class Boletin3
     public static Random random = new Random();
     public static void main(String[] args) 
     {
-        ej19();
+        ej20();
     }
     public static void ej1()
     {
@@ -360,27 +360,29 @@ public class Boletin3
         int num = Integer.parseInt(sc.nextLine());
         int contador = 1;
         int columnas = 1;
-
-        for(int i = 1;contador <= num;i++)
+        do
         {
-            for(int j = 1;j <= columnas;j++)
-            {
-                System.out.print(contador + " ");
-                contador++;
-                if(contador > num)
+            for(int i = 1;contador <= num;i++)
+            {   
+                for(int j = 1;j <= columnas;j++)
                 {
-                    break;
+                    System.out.print(contador + " ");
+                    contador++;
+                    if (contador > num)
+                    {
+                        break;
+                    }
                 }
+                System.out.println("");
+                columnas++;
             }
-            System.out.println("");
-            columnas++;
-        }
+        }while(contador < num);
     }
     public static void ej19()
     {
         int num = random.nextInt(100 + 1);
         int intentosRestantes = 10;
-
+        boolean acertado = false;
         do
         {
             System.out.printf("Tienes %d intentos, introduzca el número: ", intentosRestantes);
@@ -402,7 +404,7 @@ public class Boletin3
             {
                 System.out.println("¡Enhorabuena has acertado!");
                 System.out.println("");
-                break;
+                acertado = true;
             }
 
             if(intentosRestantes == 0)
@@ -410,9 +412,51 @@ public class Boletin3
                 System.out.println("GAME OVER");
                 System.out.println("");
                 System.out.printf("El número a adivinar era %d\n", num);
-                break;
             }
             System.out.println("");
-        }while(intentosRestantes >= 0);
+        }while(intentosRestantes >= 1 && acertado == false);
+    }
+    public static void ej20()
+    {
+        System.out.print("Introduce el límite inferior del intervalo: ");
+        int limitInf = Integer.parseInt(sc.nextLine());
+        System.out.print("Introduce el límite superior del intervalo: ");
+        int limitSup = Integer.parseInt(sc.nextLine());
+        int num = 0;
+        int sumaInteralo = 0;
+        int outIntervalo = 0;
+        int limitIntervalo = 0;
+
+        if (limitInf > limitSup)
+        {
+            System.out.println("");
+            System.out.println("El límite inferior no puede ser mayor al límite superior.");
+            System.out.print("Introduzca de nuevo el límite inferior: ");
+            limitInf = Integer.parseInt(sc.nextLine());
+        }
+        do
+        {
+            System.out.print("Introduzca un número: ");
+            num = Integer.parseInt(sc.nextLine());
+            if (num > limitInf && num < limitSup)
+            {
+                sumaInteralo += num;
+            }
+            if ((num < limitInf || num > limitSup) && num != 0) // Añado como condición que sea diferente a 0 para que cuando quiera salir del loop no cuente el 0 como número fuera del intervalo
+            {
+                outIntervalo++;
+            }
+            if (num == limitInf || num == limitSup)
+            {
+                limitIntervalo++;
+            }
+        }while(num != 0);
+
+        System.out.printf
+        (" \n" + 
+         "- La suma de los números dentro del intervalo es: %d\n" + 
+         "- Has introducido %d números fuera del intervalo\n" + 
+         "- Has introducido %d números equivalente a los límtes del intervalo\n", sumaInteralo, outIntervalo, limitIntervalo
+        );
     }
 } 
