@@ -8,7 +8,7 @@ public class Boletin3
     public static Random random = new Random();
     public static void main(String[] args) 
     {
-        ej20();
+        ej17();
     }
     public static void ej1()
     {
