@@ -5,13 +5,31 @@ public class Calculadora
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) 
     {
-        mostrarMenu();
+        boolean comprobarSigno = false;
+        int intentosSignos = 3;
+        char operador;
+        
 
-        int num1 = solicitarNumero();
-        int num2 = solicitarNumero();
-        char operador = solicitarSigno();
-        realizarOperacion(num1, num2, operador);
+        do
+        {
+            mostrarMenu();
+            intentosSignos--;
+            System.out.printf("Tienes %d intentos para introducir correctamente el operador\n", intentosSignos);
+            operador = solicitarSigno();
+            comprobarSigno = comprobarSigno(operador);
+            
+        }while(comprobarSigno == false && intentosSignos > 0);
 
+        if(intentosSignos >= 1)
+        {
+            int num1 = solicitarNumero();
+            int num2 = solicitarNumero();
+            realizarOperacion(num1, num2, operador);
+        }
+        
+        
+            
+        sc.close();
     }
 
     public static void mostrarMenu()
@@ -33,9 +51,9 @@ public class Calculadora
     public static char solicitarSigno()
     {
         System.out.print("Introduce el operador de la operación: ");//Leemos la entrada como String y lo guardamos en otra variable como Char
-        String operadorEntrada = sc.nextLine();
  
-        char operador = operadorEntrada.charAt(0);
+        char operador = sc.nextLine().charAt(0);
+
         return operador;
         
     }
@@ -79,6 +97,17 @@ public class Calculadora
         }else
         {
             System.out.printf("%d %c %d = %d\n", num1, operador, num2, resultado);
+        }
+    }
+    public static boolean comprobarSigno(char operador)
+    {
+        if(operador == '+' || operador == '-' || operador == '*' || operador == '/' || operador == '^' || operador == '%')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
