@@ -13,7 +13,7 @@ public class Actividad5
         double minimo = minimo(lista);
         double promedio = promedio(lista);
 
-        mostrarResultados(minimo, minimo, promedio);
+        mostrarResultados(mayor, minimo, promedio);
     }
     public static double [] leerArray(int numValores)
     {
@@ -28,9 +28,9 @@ public class Actividad5
     }
     public static double maximo(double[] lista)
     {
-        double mayor = 0;
+        double mayor = lista[0];
 
-        for(int i = 0; i < lista.length - 1; i++)
+        for(int i = 1; i < lista.length; i++)
         {
           if(lista[i] > mayor)
           {
@@ -42,22 +42,14 @@ public class Actividad5
     }  
     public static double minimo(double[] lista)
     {
-        boolean esMenor = true;
         double menor = lista[0];
 
-        for(int i = 0; i < lista.length - 1; i++)
+        for(int i = 1; i < lista.length; i++)
         {
-            for(int j = 0; j < lista.length - 1 && esMenor == true; j++)
-            {
-                if(lista[i] > lista[i + 1])
-                {
-                    esMenor = false;
-                }
-            }
-            if(esMenor == true)
-                {
-                    menor = lista[i];
-                }
+          if(lista[i] < menor)
+          {
+            menor = lista[i];
+          }
         }
         return menor;
     }
