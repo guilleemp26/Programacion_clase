@@ -185,8 +185,10 @@ public class Ejercicio1
         double areaRectangulo = 0;
 
         mostrarMenuFigura();
+        int seleccionMenuFigura = seleccionMenuFigura();
 
-        switch (seleccionMenuFigura()) {
+
+        switch (validarSeleccionMenu(seleccionMenuFigura)) {
             case 1:
                 System.out.print("Introduce el radio del círculo en cm: ");
                 double radioCirculo = Double.parseDouble(sc.nextLine());
@@ -225,6 +227,29 @@ public class Ejercicio1
         System.out.print("Introduce que cálculo quiere realizar: ");
         return Integer.parseInt(sc.nextLine());
     }
+    public static int validarSeleccionMenu(int seleccionMenuFigura)
+    {
+        boolean numeroCorrecto = false;
+        int numMenuValidado = 0;
+
+        do
+        {
+            if(seleccionMenuFigura != 1 && seleccionMenuFigura != 2 && seleccionMenuFigura != 3)
+            {
+                numeroCorrecto = false;
+                System.out.print("El número introducido no es válido, intente de nuevo: ");
+                seleccionMenuFigura = Integer.parseInt(sc.nextLine());
+            }
+            else
+            {
+                numeroCorrecto = true;
+                numMenuValidado = seleccionMenuFigura;
+                
+            }
+        }while(numeroCorrecto == false);
+
+        return numMenuValidado;
+    }
     public static double calcularAreaCirculo(double radioCirculo)
     {
         return Math.PI * Math.pow(radioCirculo, 2);
@@ -237,7 +262,7 @@ public class Ejercicio1
     {
         return baseRectanculo * alturaRectanculo;
     }
-    public static double  almacenarAreas(double areaCirculo, double areaTriangulo, double areaRectangulo)//cambiar void
+    public static double  almacenarAreas(double areaCirculo, double areaTriangulo, double areaRectangulo)
     {
         if(areaCirculo != 0)
         {
@@ -255,6 +280,6 @@ public class Ejercicio1
     public static void imprimirResultado(double areaSeleccionada)
     {
         System.out.println("");
-        System.out.printf("El área seleccionada es: %.3f en cm", areaSeleccionada);
+        System.out.printf("El área de la figura seleccionada es: %.3fcm\n", areaSeleccionada);
     }
 }
