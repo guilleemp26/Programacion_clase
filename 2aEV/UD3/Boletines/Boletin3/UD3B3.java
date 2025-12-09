@@ -6,7 +6,7 @@ public class UD3B3
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) 
     {
-        ej12();
+        ej16();
     }   
     public static void ej1()
     {
@@ -22,7 +22,7 @@ public class UD3B3
         }
     } 
     public static void ej2()
-    {
+    { 
         System.out.print("Introduce una frase: ");
         String frase = sc.nextLine();
 
@@ -159,5 +159,15 @@ public class UD3B3
     public static void ej14()
     {
         
+    } 
+    public static void ej16()
+    {
+        System.out.print("Introduce una IP con formato IPv4: ");
+        String ipLeida = sc.nextLine();
+        
+        String patron = "^[\\d]{1,3}.[\\d]{1,3}.[\\d]{1,3}.[\\d]{1,3}$";
+        boolean valido = Pattern.matches(patron, ipLeida);
+
+        System.out.println(valido);
     }
 }
