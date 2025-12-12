@@ -6,7 +6,7 @@ public class UD3B3
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) 
     {
-        ej16();
+        ej17();
     }   
     public static void ej1()
     {
@@ -169,5 +169,29 @@ public class UD3B3
         boolean valido = Pattern.matches(patron, ipLeida);
 
         System.out.println(valido);
+    }
+    public static void ej17()
+    {
+        System.out.print("Introduce tu código HTML: ");
+        String lectura = sc.nextLine();
+
+        Pattern p = Pattern.compile("<A-Za-z>+([\\s\\S]*?)<\\/A-Za-z>+");
+        Matcher m = p.matcher(lectura);
+
+        while(m.find());
+        {
+            System.out.println("Etiqueta html encontrada: " + m.group());
+        }
+    }
+    public static void ej18()
+    {
+
+
+
+
+        
+        
+        
+        
     }
 }
