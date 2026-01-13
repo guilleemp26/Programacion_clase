@@ -23,10 +23,21 @@ public class Main
     public static void Actividad2()
     {
         CuentaBancaria cuenta1 = new CuentaBancaria("Guillem", "111222333");
-
+        System.out.println("");
+        System.out.println(cuenta1.mostrarInformacion());
+        System.out.println("");
         cuenta1.depositar(200);
-        
-        
+        System.out.println("");
+        cuenta1.retirar(100);
+        System.out.println("");
+        System.out.println(cuenta1.mostrarInformacion());
+        System.out.println("");
+        System.out.println(cuenta1.mostrarInformacion());
+        System.out.println("");
+        cuenta1.desactivarCuenta();
+        System.out.println("");
+        cuenta1.depositar(200);
+        System.out.println("");
+        System.out.println(cuenta1.mostrarInformacion());
     }
-    
 }

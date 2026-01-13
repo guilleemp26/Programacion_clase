@@ -50,6 +50,7 @@ public class CuentaBancaria
         if(activa)
         {
             saldo += cantidadADepositar;
+            System.out.println("Se ha realizado el ingreso correctamente");
         }
         else
         {
@@ -62,6 +63,7 @@ public class CuentaBancaria
         if(activa && (saldo >= cantidadARetirar) && cantidadARetirar >= 0)
         {
             saldo -= cantidadARetirar;
+            System.out.println("Se ha retirado el dinero correctamente");
         }
         else
         {
@@ -72,12 +74,13 @@ public class CuentaBancaria
     public void desactivarCuenta()
     {
         activa = false;
+        System.out.println("Cuenta desactivada correctamente");
     }
 
     public String mostrarInformacion()
     {
         
 
-        return "Titular: " + titular + "Número de cuenta: " + numeroCuenta + "Saldo: " + saldo + "Estado de actividad de la cuenta: " + (activa ? "Activa" : "Inactiva");
+        return "Titular: " + titular + "\nNúmero de cuenta: " + numeroCuenta + "\nSaldo: " + saldo + "\nEstado de actividad de la cuenta: " + (activa ? " Activa" : " Inactiva");
     }
 }
