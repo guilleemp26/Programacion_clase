@@ -117,8 +117,27 @@ public class Empleado
             salalrioMensual += cifraAumentar;
             System.out.println("Se ha aumentado el salario en " + cifraAumentar);
         }
-        
+        else
+        {
+            System.out.println("No se ha podido aumentar el salario");
+        }        
     }
 
-    pub
+    public void cumplirAnios()
+    {
+        antiguedad += 1;
+        System.out.println("Se ha cumplido un año satisfactoriamente. Ahora tienes " + antiguedad + " años en la empresa.");
+    }
+
+    public void calcularBonoAnual()
+    {
+        double bono = (salalrioMensual * 0.02) * antiguedad;
+        System.out.println("El bono anual es de: " + bono);
+    }
+
+    public String mostrarInformacion()
+    {
+        return "Nombre Completo: " + nombreCompleto + "\nPuesto: " + puesto + "\nSalario Mensual: " + salalrioMensual + "\nAntiguedad: " + antiguedad + " años\nID Empleado: " + idEmpleado;
+    }
+    
 }
